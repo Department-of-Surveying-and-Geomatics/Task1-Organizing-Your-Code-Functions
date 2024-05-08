@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+def plot_data(file_obj):
+    # Read data from the file object using numpy's genfromtxt
+    data = np.genfromtxt(file_obj, delimiter=' ')
+
+    # Split data into x and y values
+    x_values = data[:, 0]
+    y_values = data[:, 1]
+
+    # Create the scatter plot
+    plt.scatter(x_values, y_values)
+    plt.xlabel('X Axis')
+    plt.ylabel('Y Axis')
+    plt.grid(True)  # Corrected to 'True'
+    plt.title('Scatter Plot of coordinates')
+    plt.show()
+
+# Open the text file and pass the file object to the plot_data function
+with open('x_y_coordinates.txt', 'r') as file_obj:
+    plot_data(file_obj)
